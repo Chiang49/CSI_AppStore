@@ -51,13 +51,13 @@ export default {
     // 判別 user 裝置系統類別
     getUserDeviceSys() {
       const agentMsg = navigator.userAgent;
-      this.userAgent = agentMsg; // console.log
+      this.consoleLogMsg.userAgent = agentMsg; // console.log
       if (this.userDevice === null) {
-        this.check1 = 'Enter user device decide function'; // console.log
+        this.consoleLogMsg.check1 = 'Enter user device decide function'; // console.log
         deviceList.system.forEach((item) => {
           const flag = agentMsg.indexOf(item);
           if (flag > -1) {
-            this.check2 = 'Succeed get user device'; // console.log
+            this.consoleLogMsg.check2 = 'Succeed get user device'; // console.log
             this.userDevice = item;
             sessionStorage.setItem('userDevice', item);
           }
@@ -70,26 +70,26 @@ export default {
 
     // 判別 user Mac 系統裝置類別
     getUserMacDevice(agentMsg) {
-      this.check3 = 'Enter user Mac device decide function'; // console.log
+      this.consoleLogMsg.check3 = 'Enter user Mac device decide function'; // console.log
       deviceList.macList.forEach((item) => {
         const flag = agentMsg.indexOf(item);
         if (flag > -1) {
           this.userMacDevice = item;
-          this.check4 = 'Succeed get user Mac device'; // console.log
+          this.consoleLogMsg.check4 = 'Succeed get user Mac device'; // console.log
         }
       });
       if (this.userMacDevice === null) {
-        this.check5 = 'Enter user Mac device other decide function'; // console.log
+        this.consoleLogMsg.check5 = 'Enter user Mac device other decide function'; // console.log
         const iosQuirkPresent = () => {
           const audio = new Audio();
           audio.volume = 0.5;
           return audio.volume === 1;
         };
-        this.iosQuirkPresent = iosQuirkPresent(); // console.log
+        this.consoleLogMsg.iosQuirkPresent = iosQuirkPresent(); // console.log
         const isTouchScreen = navigator.maxTouchPoints >= 1;
-        this.isTouchScreen = isTouchScreen; // console.log
+        this.consoleLogMsg.isTouchScreen = isTouchScreen; // console.log
         this.userMacDevice = isTouchScreen || iosQuirkPresent() ? 'iPad' : 'Mac';
-        this.check6 = `Succeed get user Mac device is ${this.userMacDevice}`; // console.log
+        this.consoleLogMsg.check6 = `Succeed get user Mac device is ${this.userMacDevice}`; // console.log
       }
       sessionStorage.setItem('userMacDevice', this.userMacDevice);
     },
