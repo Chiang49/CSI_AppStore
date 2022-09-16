@@ -1,6 +1,17 @@
 
-.userDevice{
-}
-
-.testMsg{
+.msgBox{
+    margin-bottom: 48px;
+    li{
+        margin-bottom: $spacer * .5;
+        span{
+            font-size: 24px;
+            font-weight: 700;
+            color: rgb(112, 112, 112);
+        }
+        .msgLog{
+            font-size: 16px;
+            font-weight: 700;
+            color: rgb(160, 33, 33);
+        }
+    }
 }

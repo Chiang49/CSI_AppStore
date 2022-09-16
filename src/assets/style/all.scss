@@ -7,5 +7,11 @@
 // bootstrap grid
 @import '/node_modules/bootstrap/scss/bootstrap-grid.scss';
 
+// my Utilities
+@import './helper/myUtilities';
+
+// views
+@import './views/appList';
+
 // components
 @import './components/appHeader';
