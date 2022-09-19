@@ -3,13 +3,18 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    name: 'AppList',
-    component: () => import('../views/AppList.vue'),
+    name: 'UserDevice',
+    component: () => import('../views/AppUserDevice.vue'),
   },
   {
-    path: '/about',
+    path: '/appDetail',
     name: 'AppDetail',
     component: () => import('../views/AppDetail.vue'),
+  },
+  {
+    path: '/appUploadFile',
+    name: 'AppUploadFile',
+    component: () => import('../views/AppUploadFile.vue'),
   },
 ];
 

@@ -9,13 +9,21 @@
   },
   "dependencies": {
     "app-info-parser": "^1.1.4",
+    "assert": "^2.0.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
+    "browserify-zlib": "^0.2.0",
     "core-js": "^3.8.3",
     "mini-css-extract-plugin": "^2.6.1",
+    "moment": "^2.29.4",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "path-browserify": "^1.0.1",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
-    "vuex": "^4.0.0"
+    "vuex": "^4.0.0",
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -46,6 +54,7 @@
       "parser": "@babel/eslint-parser"
     },
     "rules": {
+      "global-require": 0,
       "linebreak-style": [
         0,
         "error",

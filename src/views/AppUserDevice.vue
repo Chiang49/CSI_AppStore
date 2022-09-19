@@ -1,19 +1,21 @@
 <template>
   <div class="container">
-    <h1 class="title">App List</h1>
+    <h1 class="title">AppStore - User Device</h1>
     <ul class="msgBox">
       <li>
-        User Device System：<span>{{ userDevice }}</span>
+        User Device System：<span class="userDevice">{{ userDevice }}</span>
       </li>
       <li v-if="userDevice === 'Mac OS'">
-        Mac Device：<span>{{ userMacDevice }}</span>
+        Mac Device：<span class="userDevice">{{ userMacDevice }}</span>
       </li>
     </ul>
     <div class="msgBox">
       <h2 class="subTitle">Console</h2>
       <ul>
         <li v-for="(value, name) in consoleLogMsg" :key="name">
-          {{ name }}：<br /><span class="msgLog">{{ value }}</span>
+          <template v-if="value !== null">
+            {{ name }}：<br /><span class="msgLog">{{ value }}</span>
+          </template>
         </li>
       </ul>
     </div>
@@ -28,15 +30,15 @@ export default {
     return {
       // console.log Msg =======================================
       consoleLogMsg: {
-        userAgent: 'Null',
-        check1: 'Null',
-        check2: 'Null',
-        check3: 'Null',
-        check4: 'Null',
-        check5: 'Null',
-        iosQuirkPresent: 'Null',
-        isTouchScreen: 'Null',
-        check6: 'Null',
+        userAgent: null,
+        check1: null,
+        check2: null,
+        check3: null,
+        check4: null,
+        check5: null,
+        iosQuirkPresent: null,
+        isTouchScreen: null,
+        check6: null,
       },
 
       // Formal Data ===========================================
