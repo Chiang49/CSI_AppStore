@@ -7,11 +7,6 @@ const routes = [
     component: () => import('../views/AppUserDevice.vue'),
   },
   {
-    path: '/appDetail',
-    name: 'AppDetail',
-    component: () => import('../views/AppDetail.vue'),
-  },
-  {
     path: '/appUploadFile',
     name: 'AppUploadFile',
     component: () => import('../views/AppUploadFile.vue'),

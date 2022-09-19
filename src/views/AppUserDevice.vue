@@ -59,8 +59,8 @@ export default {
         deviceList.system.forEach((item) => {
           const flag = agentMsg.indexOf(item);
           if (flag > -1) {
-            this.consoleLogMsg.check2 = 'Succeed get user device'; // console.log
             this.userDevice = item;
+            this.consoleLogMsg.check2 = `Succeed get user device is ${this.userDevice}`; // console.log
             sessionStorage.setItem('userDevice', item);
           }
         });
@@ -77,7 +77,7 @@ export default {
         const flag = agentMsg.indexOf(item);
         if (flag > -1) {
           this.userMacDevice = item;
-          this.consoleLogMsg.check4 = 'Succeed get user Mac device'; // console.log
+          this.consoleLogMsg.check4 = `Succeed get user Mac device is ${this.userMacDevice}`; // console.log
         }
       });
       if (this.userMacDevice === null) {
