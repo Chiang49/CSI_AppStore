@@ -1,4 +1,27 @@
 
+.systemIcon{
+    width: 25px;
+    height: 25px;
+    margin-right: 8px;
+}
+
+.uploadFileCard{
+    display: flex;
+    align-items: center;
+    img{
+        width: 100px;
+        margin-right: 16px;
+    }
+    .msgBox{
+        margin-bottom: 0px;
+        li{
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
 .appInfo{
     font-weight: 700;
     color: rgb(112, 112, 112);
