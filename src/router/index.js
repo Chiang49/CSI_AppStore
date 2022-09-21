@@ -7,9 +7,14 @@ const routes = [
     component: () => import('../views/AppUserDevice.vue'),
   },
   {
-    path: '/appUploadFile',
-    name: 'AppUploadFile',
-    component: () => import('../views/AppUploadFile.vue'),
+    path: '/UploadFile',
+    name: 'UploadFile',
+    component: () => import('../views/AppUpData.vue'),
+  },
+  {
+    path: '/UploadScreenshots',
+    name: 'UploadScreenshots',
+    component: () => import('../views/AppUploadScreenshots.vue'),
   },
 ];
 

@@ -15,14 +15,14 @@
     .msgBox{
         margin-bottom: 0px;
         li{
-            &:last-child{
+            &:last-child{ 
                 margin-bottom: 0px;
             }
         }
     }
 }
 
-.appInfo{
+.appInfoInput{
     font-weight: 700;
     color: rgb(112, 112, 112);
     background: none;
