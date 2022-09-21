@@ -89,7 +89,7 @@ export default {
                   ? res.CFBundleShortVersionString
                   : null;
                 this.appInfo.expirationDate = res.mobileProvision.ExpirationDate
-                  ? res.mobileProvision.ExpirationDate
+                  ? this.$moment(res.mobileProvision.ExpirationDate).format('YYYY-MM-DD, hh:mm:ss')
                   : null;
                 this.appInfo.content = null;
                 break;
@@ -102,7 +102,6 @@ export default {
                 break;
               // no default
             }
-            console.log(this.appInfo);
           })
           .catch((err) => {
             console.log('err ----> ', err);
