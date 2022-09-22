@@ -1,52 +1,54 @@
 <template>
-  <div class="msgBox">
-    <label for="uploadFile" class="flex-row-center">
-      UploadFile：
-      <template v-if="appInfo?.type !== undefined">
-        <img
-          class="systemIcon"
-          :src="`${appInfo?.type === 'ipa' ? appTypeIcos.appleIcon : appTypeIcos.androidIcon}`"
-          alt="App Type Icon"
-        />
-      </template>
-      <input
-        type="file"
-        id="uploadFile"
-        name="uploadFile"
-        class="uploadFile"
-        ref="uploadFile"
-        @change="getAppInfo"
-      />
-    </label>
-  </div>
-  <div class="uploadFileCard">
-    <template v-if="appInfo.icon !== undefined">
-      <img :src="appInfo.icon" alt="AppIcon" />
-    </template>
-    <ul class="msgBox">
-      <li v-for="(value, name) in appInfo" :key="name">
-        <template
-          v-if="
-            (name !== 'expirationDate' || appInfo.type === 'ipa') &&
-            name !== 'icon' &&
-            name !== 'type'
-          "
-        >
-          <label for="appName">
-            {{ name }}：
-            <input
-              type="text"
-              id="appName"
-              name="appName"
-              :class="{'appInfoInput': value !== null}"
-              :disabled="value !== null"
-              :placeholder="name === 'content' ? '請輸入更新內容' : value === null ? '未有資訊請自行填寫' : ''"
-              :value="value"
-            />
-          </label>
+  <div class="uploadFile">
+    <div class="uploadFile-header">
+      <label for="uploadFile" class="flex-row-center">
+        UploadFile：
+        <template v-if="appInfo?.type !== undefined">
+          <img
+            class="systemIcon"
+            :src="`${appInfo?.type === 'ipa' ? appTypeIcos.appleIcon : appTypeIcos.androidIcon}`"
+            alt="App Type Icon"
+          />
         </template>
-      </li>
-    </ul>
+        <input
+          type="file"
+          id="uploadFile"
+          name="uploadFile"
+          class="uploadFile"
+          ref="uploadFile"
+          @change="getAppInfo"
+        />
+      </label>
+    </div>
+    <div class="uploadFile-body">
+      <template v-if="appInfo.icon !== undefined">
+        <img :src="appInfo.icon" alt="AppIcon" />
+      </template>
+      <ul class="msgBox">
+        <li v-for="(value, name) in appInfo" :key="name">
+          <template
+            v-if="
+              (name !== 'expirationDate' || appInfo.type === 'ipa') &&
+              name !== 'icon' &&
+              name !== 'type'
+            "
+          >
+            <label :for="name">
+              {{ name }}：
+              <input
+                type="text"
+                :id="name"
+                :name="name"
+                :class="{'appInfoInput': value !== null}"
+                :disabled="value !== null"
+                :placeholder="name === 'content' ? '請輸入更新內容' : value === null ? '未有資訊請自行填寫' : ''"
+                :value="value"
+              />
+            </label>
+          </template>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -91,14 +93,12 @@ export default {
                 this.appInfo.expirationDate = res.mobileProvision.ExpirationDate
                   ? this.$moment(res.mobileProvision.ExpirationDate).format('YYYY-MM-DD, hh:mm:ss')
                   : null;
-                this.appInfo.content = null;
                 break;
               case 'apk':
                 this.appInfo.name = res.application.label ? res.application.label[0] : null;
                 this.appInfo.icon = res.icon;
                 this.appInfo.version = res.versionName ? res.versionName : null;
                 this.appInfo.expirationDate = `apk ${noValueMsg.noExpirationDate}`;
-                this.appInfo.content = null;
                 break;
               // no default
             }

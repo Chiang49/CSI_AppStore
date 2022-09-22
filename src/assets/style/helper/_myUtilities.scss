@@ -18,6 +18,25 @@
 .msgBox{
     margin-bottom: 48px;
     li{
-        margin-bottom: $spacer * .5;
+        margin-bottom: 8px;
+    }
+}
+
+.appFile{
+    margin-bottom: 36px;
+}
+
+.addFileBtn{
+    background: transparent;
+    padding: 12px 24px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .6s;
+    &:hover{
+        box-shadow: 2px 2px 8px 1.5px #aaa;
+    }
+    &:active{
+        box-shadow: none;
     }
 }

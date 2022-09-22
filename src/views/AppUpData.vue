@@ -1,7 +1,15 @@
 <template>
   <div class="container">
     <h1 class="title">AppStore - Upload File</h1>
-    <UploadFile></UploadFile>
+    <ul>
+      <li class="appFile"
+        v-for="item in appInfo.files" :key="item">
+        <UploadFile></UploadFile>
+      </li>
+    </ul>
+    <button class="addFileBtn"
+      @click="addUploadFile"
+    > + 新增 OS 檔案</button>
   </div>
 </template>
 
@@ -14,9 +22,17 @@ export default {
   },
   data() {
     return {
+      appInfo: {
+        files: [
+          {},
+        ],
+      },
     };
   },
   methods: {
+    addUploadFile() {
+      this.appInfo.files.push({});
+    },
   },
 };
 </script>
