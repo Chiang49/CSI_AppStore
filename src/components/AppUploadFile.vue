@@ -21,8 +21,8 @@
       </label>
     </div>
     <div class="uploadFile-body">
-      <template v-if="appInfo.icon !== undefined">
-        <img :src="appInfo.icon" alt="AppIcon" />
+      <template v-if="appInfo?.icon !== undefined">
+        <img :src="appInfo?.icon" alt="AppIcon" />
       </template>
       <ul class="msgBox">
         <li v-for="(value, name) in appInfo" :key="name">
@@ -42,7 +42,8 @@
                 :class="{'appInfoInput': value !== null}"
                 :disabled="value !== null"
                 :placeholder="name === 'content' ? '請輸入更新內容' : value === null ? '未有資訊請自行填寫' : ''"
-                :value="value"
+                v-model="appInfo[name]"
+                @input="updateValue"
               />
             </label>
           </template>
@@ -61,13 +62,20 @@ import androidIcon from '../assets/icon/android_icon.svg';
 import { noValueMsg } from '../script/deviceList';
 
 export default {
+  props: {
+    propsAppInfo: {
+      type: Object,
+      require: true,
+      default: () => {},
+    },
+  },
   data() {
     return {
       appTypeIcos: {
         appleIcon,
         androidIcon,
       },
-      appInfo: {},
+      appInfo: this.propsAppInfo ? this.propsAppInfo : {},
     };
   },
   methods: {
@@ -102,6 +110,8 @@ export default {
                 break;
               // no default
             }
+            // 使用 v-model 語法糖綁定子元件後 $emit 特別的寫法 => 'update:modelValue'
+            this.updateValue();
           })
           .catch((err) => {
             console.log('err ----> ', err);
@@ -109,6 +119,9 @@ export default {
       } else {
         console.log('上傳檔案格式錯誤或未上傳檔案');
       }
+    },
+    updateValue() {
+      this.$emit('sendAppInfo', this.appInfo);
     },
   },
 };
