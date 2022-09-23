@@ -80,8 +80,8 @@ export default {
   },
   methods: {
     getAppInfo() {
-      const appFile = this.$refs.uploadFile.files[0] ? this.$refs.uploadFile.files[0] : null;
-      const appType = appFile !== null ? appFile.name.substring(appFile.name.length - 3) : '';
+      const appFile = this.$refs.uploadFile.files[0];
+      const appType = appFile !== undefined ? appFile.name.substring(appFile.name.length - 3) : '';
       if (appType === 'ipa' || appType === 'apk') {
         this.appInfo.type = appType;
         this.appInfo.size = `${(appFile.size / 1024 / 1024).toFixed(2)} MB`;
@@ -110,14 +110,16 @@ export default {
                 break;
               // no default
             }
-            // 使用 v-model 語法糖綁定子元件後 $emit 特別的寫法 => 'update:modelValue'
             this.updateValue();
           })
           .catch((err) => {
             console.log('err ----> ', err);
           });
       } else {
-        console.log('上傳檔案格式錯誤或未上傳檔案');
+        this.$swal.fire({
+          icon: 'warning',
+          text: '上傳檔案格式錯誤或未上傳檔案',
+        });
       }
     },
     updateValue() {

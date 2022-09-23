@@ -19,10 +19,12 @@
     "node-polyfill-webpack-plugin": "^2.0.1",
     "path-browserify": "^1.0.1",
     "stream-browserify": "^3.0.0",
+    "sweetalert2": "^11.4.33",
     "swiper": "^8.4.2",
     "util": "^0.12.4",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-sweetalert2": "^5.0.5",
     "vuex": "^4.0.0",
     "webpack": "^5.74.0"
   },

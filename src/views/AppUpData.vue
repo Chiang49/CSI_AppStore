@@ -37,7 +37,10 @@ export default {
       if (Object.keys(lastFile).length !== 0) {
         this.appInfo.files.push({});
       } else {
-        console.log('有一筆空物件可上傳檔案');
+        this.$swal.fire({
+          icon: 'warning',
+          text: '已有一筆空間可上傳',
+        });
       }
     },
     // get AppUploadFile component data
