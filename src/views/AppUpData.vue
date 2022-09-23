@@ -10,18 +10,28 @@
         ></UploadFile>
       </li>
     </ul>
+
+    <UpdateContent @sendUpdateText="getUpdataContent"></UpdateContent>
+
     <button class="addFileBtn"
       @click="addUploadFile"
     > + 新增 OS 檔案</button>
+
+    <div class="msgBox">
+      <h2 class="subTitle">JSON</h2>
+      <p>{{ appInfo }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 import UploadFile from '../components/AppUploadFile.vue';
+import UpdateContent from '../components/AppUpdateContent.vue';
 
 export default {
   components: {
     UploadFile,
+    UpdateContent,
   },
   data() {
     return {
@@ -46,7 +56,10 @@ export default {
     // get AppUploadFile component data
     getAppInfo(AppData) {
       this.appInfo.files[this.appInfo.files.length - 1] = AppData;
-      console.log(this.appInfo);
+    },
+    // get Updata content
+    getUpdataContent(updateText) {
+      this.appInfo.updateContent = updateText;
     },
   },
 };
