@@ -1,1 +1,39 @@
 @import 'swiper/css';
+
+.mySwiper{
+    height: 330px;
+}
+
+.screenshots{
+    margin-bottom: 80px;
+    position: relative;
+    &-header{
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.uploadScreen{
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: rgba(187, 187, 187, .5);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    input{
+        display: none;
+    }
+    span{
+        font-size: 40px;
+        font-weight: 700;
+        color: #fff;
+    }
+}
