@@ -10,15 +10,27 @@
             margin-right: 8px;
         }
         label{
-            padding: 0px 16px;
+            display: flex;
+            align-items: center;
+        }
+        .labelTest{
+            padding: 12px 16px;
             border: 1px solid #aaa;
-            border-radius: 4px;
+            border-left: none;
+            border-radius: 0px 8px 8px 0px;
+            cursor: pointer;
+            transition: .5s;
+            &:hover{
+                color: #fff;
+                background: #aaa;
+            }
         }
         .fileName{
-            padding: 12px 0px;
-            border: none;
+            background: #fff;
+            padding: 12px 16px;
+            border: 1px solid #aaa;
             border-right: 1px solid #aaa;
-            margin-right: 16px;
+            border-radius: 8px 0px 0px 8px;
         }
         .inputFile{
             display: none;

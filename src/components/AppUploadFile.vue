@@ -12,6 +12,7 @@
         <input type="text" id="fileName"
           class="fileName"
           placeholder="請上傳檔案"
+          disabled
           v-model="appInfo.name"
         />
         <input
@@ -22,7 +23,7 @@
           ref="uploadFile"
           @change="getAppInfo"
         />
-        Choose
+        <span class="labelTest">Choose</span>
       </label>
     </div>
     <div class="uploadFile-body">
@@ -84,7 +85,7 @@ export default {
         appleIcon,
         androidIcon,
       },
-      appInfo: this.propsAppInfo ? this.propsAppInfo : {},
+      appInfo: this.propsAppInfo,
     };
   },
   methods: {
