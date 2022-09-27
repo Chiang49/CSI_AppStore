@@ -1,23 +1,28 @@
 <template>
   <div class="uploadFile">
     <div class="uploadFile-header">
-      <label for="uploadFile" class="flex-row-center">
-        UploadFile：
-        <template v-if="appInfo?.type !== undefined">
-          <img
-            class="systemIcon"
-            :src="`${appInfo?.type === 'ipa' ? appTypeIcos.appleIcon : appTypeIcos.androidIcon}`"
-            alt="App Type Icon"
-          />
-        </template>
+      <template v-if="appInfo?.type !== undefined">
+        <img
+          class="systemIcon"
+          :src="`${appInfo?.type === 'ipa' ? appTypeIcos.appleIcon : appTypeIcos.androidIcon}`"
+          alt="App Type Icon"
+        />
+      </template>
+      <label :for="`uploadFile${appIndex}`">
+        <input type="text" id="fileName"
+          class="fileName"
+          placeholder="請上傳檔案"
+          v-model="appInfo.name"
+        />
         <input
           type="file"
-          id="uploadFile"
+          :id="`uploadFile${appIndex}`"
+          class="inputFile"
           name="uploadFile"
-          class="uploadFile"
           ref="uploadFile"
           @change="getAppInfo"
         />
+        Choose
       </label>
     </div>
     <div class="uploadFile-body">
@@ -63,6 +68,10 @@ import { noValueMsg } from '../script/deviceList';
 
 export default {
   props: {
+    appIndex: {
+      type: Number,
+      require: true,
+    },
     propsAppInfo: {
       type: Object,
       require: true,

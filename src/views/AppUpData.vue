@@ -3,10 +3,11 @@
     <h1 class="title">AppStore - Upload File</h1>
     <ul>
       <li class="appFile"
-        v-for="(item) in appInfo.files" :key="item.id">
+        v-for="(item, index) in appInfo.files" :key="item.id">
         <UploadFile
           @sendAppInfo="getAppInfo"
           :propsAppInfo="item"
+          :appIndex="index"
         ></UploadFile>
       </li>
     </ul>

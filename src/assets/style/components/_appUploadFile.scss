@@ -2,10 +2,26 @@
 .uploadFile{
     &-header{
         margin-bottom: 16px;
+        display: flex;
+        align-items: center;
         .systemIcon{
             width: 25px;
             height: 25px;
             margin-right: 8px;
+        }
+        label{
+            padding: 0px 16px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+        .fileName{
+            padding: 12px 0px;
+            border: none;
+            border-right: 1px solid #aaa;
+            margin-right: 16px;
+        }
+        .inputFile{
+            display: none;
         }
     }
     &-body{
