@@ -1,21 +1,35 @@
 @import 'swiper/css';
 
-.mySwiper{
-    height: 330px;
-}
-
 .screenshots{
+    height: 100%;
     margin-bottom: 80px;
-    position: relative;
     &-header{
+        height: 5%;
         margin-bottom: 16px;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+    &-body{
+        height: 100%;
+        position: relative;
+    }
+    .slide{
+        height: 100%;
+        position: relative;
+        button{
+            color: #fff;
+            background: rgba(187, 187, 187, .5);
+            padding: 10px 13.5px;
+            border: none;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+    }
 }
 
-.uploadScreen{
+.uploadScreenBtn{
     display: block;
     width: 60px;
     height: 60px;

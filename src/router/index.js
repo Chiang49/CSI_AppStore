@@ -16,6 +16,11 @@ const routes = [
     name: 'UploadScreenshots',
     component: () => import('../views/AppUploadScreenshots.vue'),
   },
+  {
+    path: '/Array',
+    name: 'Array',
+    component: () => import('../views/ArrayTest.vue'),
+  },
 ];
 
 const router = createRouter({

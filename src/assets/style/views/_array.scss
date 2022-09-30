@@ -1,0 +1,68 @@
+.inpuText{
+    margin-bottom: 16px;
+    input{
+        padding: 8px 16px;
+        border: 1px solid #aaa;
+        border-radius: 8px 0px 0px 8px;
+    }
+    button{
+        background: none;
+        padding: 8px 16px;
+        border: 1px solid #aaa;
+        border-left: none;
+        border-radius: 0px 8px 8px 0px;
+        transition: .6s;
+        cursor: pointer;
+        &:hover{
+            background: #aaa;
+            color: #fff;
+        }
+        &:active{
+            background: none;
+        }
+    }
+}
+
+.list{
+    display: flex;
+    align-items: center;
+    .drag-move{
+        transition: transform .3s;
+    }
+    &-item{
+        background: #fff;
+        border: 1px solid #aaa;
+        border-radius: 50px;
+        margin-right: 16px;
+        display: flex;
+        cursor: pointer;
+        &:active{
+            cursor: move;
+        }
+    }
+    .content{
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+    }
+    .btnGroup{
+        border-left: 1px solid #aaa;
+        button{
+            display: block;
+            border: 1px solid transparent;
+            border-radius: 0px 50px 0px 0px;
+            background: transparent;
+            padding: 4px 20px;
+            transition: .6s;
+            cursor: pointer;
+            &:nth-child(2){
+                border-top: 1px solid #aaa;
+                border-radius: 0px 0px 50px 0px;
+            }
+            &:hover{
+                color: #fff;
+                background: #aaa;
+            }
+        }
+    }
+}

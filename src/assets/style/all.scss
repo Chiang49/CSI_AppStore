@@ -12,9 +12,11 @@
 
 // views
 @import './views/appList';
+@import './views/appScreenshots';
+@import './views/array';
 
 // components
 @import './components/appHeader';
 @import './components/appUploadFile';
-@import './components/appUploadScreenshots';
 @import './components/appUpdateContent';
+@import './components/appSwiper';
