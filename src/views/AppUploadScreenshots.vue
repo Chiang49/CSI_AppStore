@@ -21,12 +21,6 @@ export default {
     };
   },
   methods: {
-    // 要做動態取的父層寬度去算 swiper 高度
-    screenshotsContent() {
-      this.slideWrapHeight = document.querySelector('#screenshotsContent').offsetHeight;
-      // this.slide.width = (this.screenshotWidth - (24 * 2)) / 3;
-      // this.slide.height = (this.slide.width / 9) * 16;
-    },
   },
 };
 </script>

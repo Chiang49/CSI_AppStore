@@ -4,8 +4,17 @@
       <p>應用程式擷取畫面</p>
       <p>{{ `${photos.length} / 6` }}</p>
     </div>
-    <ul class="slide-body" ref="slideBody">
-      <li v-for="(item, index) in photos" :key="item.locationPath" class="slide-item">
+    <ul
+      class="slide-body"
+      ref="slideBody"
+    >
+      <li v-for="(item, index) in photos"
+          :key="item.locationPath"
+          class="slide-item"
+          draggable="true"
+          @dragstart="dragstart(index)"
+          @dragenter="dragenter(index)"
+      >
         <img
           :src="item.locationPath"
           alt=""
@@ -42,6 +51,7 @@ export default {
     return {
       slideHeight: 0,
       photos: [],
+      dragIndex: '',
     };
   },
   mounted() {
@@ -81,6 +91,20 @@ export default {
         icon,
         text: msg,
       });
+    },
+
+    // 被拖曳的 DOM
+    dragstart(index) {
+      this.dragIndex = index;
+    },
+    // 拖曳到的目標
+    dragenter(index) {
+      if (this.dragIndex !== index) {
+        const move = this.photos[this.dragIndex];
+        this.photos.splice(this.dragIndex, 1);
+        this.photos.splice(index, 0, move);
+        this.dragIndex = index;
+      }
     },
   },
 };
