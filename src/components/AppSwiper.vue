@@ -1,18 +1,29 @@
 <template>
-  <div class="screenshots">
-    <div class="screenshots-header">
-      <p>Upload Screenshots</p>
-      <p>{{ `${photos.length}/ 6` }}</p>
+  <div class="slide">
+    <div class="slide-header">
+      <p>應用程式擷取畫面</p>
+      <p>{{ `${photos.length} / 6` }}</p>
     </div>
-    <transition-group
-      name="drag"
-      class=""
-      tag="ul"
-    >
-      <li v-for="item in photos" :key="item.locationPath">
-        <img :src="item.locationPath" alt="">
+    <ul class="slide-body" ref="slideBody">
+      <li v-for="(item, index) in photos" :key="item.locationPath"
+          class="slide-item"
+        >
+        <img :src="item.locationPath" alt=""
+            :style="{width: `${slideWidth}px`, height: `${slideHeight}px`}"
+        >
+        <button @click="deleteImg(index)">X</button>
       </li>
-    </transition-group>
+    </ul>
+    <!-- 上傳按鈕 -->
+    <label for="upload" class="uploadBtn">
+      <input type="file" id="upload"
+        accept="image/*"
+        multiple
+        ref="uploadScreenshot"
+        @change="uploadScreenshot"
+      >
+      <span>+</span>
+    </label>
   </div>
 </template>
 
@@ -27,26 +38,39 @@ export default {
   },
   data() {
     return {
+      slideHeight: 0,
       photos: [],
     };
   },
+  mounted() {
+    // 取得 slide-body 高度
+    this.slideHeight = this.$refs.slideBody.offsetHeight;
+  },
+  computed: {
+    slideWidth() {
+      return Number(((this.slideHeight / 16) * 9).toFixed(0));
+    },
+  },
   methods: {
-    // upload ScreenShots
-    uploadScreenShots() {
-      if (this.photos.length < 6) {
-        const screenShot = this.$refs.uploadScreenBtn.files[0];
-        const screenPath = screenShot ? URL.createObjectURL(screenShot) : '';
-        if (screenPath !== '') {
+    // 上傳
+    uploadScreenshot() {
+      const screenImgs = Array.from(this.$refs.uploadScreenshot.files);
+      if (screenImgs.length > 0) {
+        screenImgs.forEach((item) => {
           this.photos.push({
-            locationPath: screenPath,
+            locationPath: URL.createObjectURL(item),
           });
-        }
+        });
       } else {
         this.$swal.fire({
           icon: 'warning',
-          text: '已達上傳檔案上限 6 張',
+          text: '未上傳任何圖檔',
         });
       }
+    },
+    // 移除截圖
+    deleteImg(index) {
+      this.photos.splice(index, 1);
     },
   },
 };

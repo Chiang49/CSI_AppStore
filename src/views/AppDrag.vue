@@ -20,7 +20,7 @@
         <span class="content">{{ item.label }}</span>
         <div class="btnGroup">
           <button @click="edit(item.label, index)">E</button>
-          <button @click="del(index)">C</button>
+          <button @click="del(index)">D</button>
         </div>
       </li>
     </transition-group>

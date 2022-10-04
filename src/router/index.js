@@ -17,9 +17,14 @@ const routes = [
     component: () => import('../views/AppUploadScreenshots.vue'),
   },
   {
-    path: '/Array',
-    name: 'Array',
-    component: () => import('../views/ArrayTest.vue'),
+    path: '/AppDrag',
+    name: 'AppDrag',
+    component: () => import('../views/AppDrag.vue'),
+  },
+  {
+    path: '/Test',
+    name: 'Test',
+    component: () => import('../views/AppTest.vue'),
   },
 ];
 
