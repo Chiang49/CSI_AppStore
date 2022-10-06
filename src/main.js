@@ -7,6 +7,10 @@ import moment from 'moment/moment';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+// axios
+// eslint-disable-next-line no-unused-vars
+import axios from 'axios';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';

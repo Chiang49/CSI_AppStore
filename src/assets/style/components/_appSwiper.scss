@@ -12,6 +12,9 @@
         height: 90%;
         display: flex;
         overflow-x: overlay;
+        .slideDrag-move{
+            transition: transform .3s;
+        }
         &::-webkit-scrollbar {
             height: 8px;
         }
@@ -27,8 +30,10 @@
         }
     }
     &-item{
-        position: relative;
+        display: block;
         margin-right: 16px;
+        position: relative;
+        cursor: grab;
         &:last-child{
             margin-right: 0px;
         }

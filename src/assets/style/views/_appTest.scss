@@ -1,0 +1,16 @@
+
+.testList{
+    .test-move{
+        transition: transform .3s;
+    }
+    &-item{
+        width: 150px;
+        font-size: 20px;
+        background: #eee;
+        padding: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+}
+

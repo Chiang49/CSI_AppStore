@@ -4,25 +4,27 @@
       <p>應用程式擷取畫面</p>
       <p>{{ `${photos.length} / 6` }}</p>
     </div>
-    <ul
+    <transition-group
+      name="slideDrag"
+      tag="ul"
       class="slide-body"
       ref="slideBody"
     >
       <li v-for="(item, index) in photos"
           :key="item.locationPath"
           class="slide-item"
+          :style="{ width: `${slideWidth}px`, height: `${slideHeight}px` }"
           draggable="true"
           @dragstart="dragstart(index)"
           @dragenter="dragenter(index)"
       >
         <img
           :src="item.locationPath"
-          alt=""
-          :style="{ width: `${slideWidth}px`, height: `${slideHeight}px` }"
+          alt="TEST"
         />
         <button @click="deleteImg(index)">X</button>
       </li>
-    </ul>
+    </transition-group>
     <!-- 上傳按鈕 -->
     <label for="upload" class="uploadBtn">
       <input
