@@ -58,7 +58,7 @@ export default {
   },
   mounted() {
     // 取得 slide-body 高度
-    this.slideHeight = this.$refs.slideBody.offsetHeight;
+    this.slideHeight = this.$refs.slideBody.$el.offsetHeight;
   },
   computed: {
     slideWidth() {
@@ -81,6 +81,7 @@ export default {
         this.photos.push({
           locationPath: URL.createObjectURL(item),
         });
+        this.photosLength += 1;
       });
     },
     // 移除截圖
