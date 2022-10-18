@@ -16,7 +16,6 @@
         name="darkMode"
         id="darkMode"
         v-model="isDark"
-        @click="changeMode"
         hidden
       >
       <div class="switch-btn"></div>
@@ -29,20 +28,41 @@ export default {
   data() {
     return {
       isDark: false,
-      mode: '',
+      preferredTheme: '',
     };
   },
   watch: {
     isDark() {
-      this.mode = this.isDark ? 'dark' : 'ligth';
-      this.$emit('sendMode', this.mode);
+      this.preferredTheme = this.isDark ? 'dark' : 'ligth';
+      this.setPreferredTheme(this.preferredTheme);
     },
   },
   created() {
-    this.mode = localStorage.getItem('theme');
-    this.isDark = this.mode === 'dark';
+    this.getLocalTheme();
   },
   methods: {
+    // 從 localStorage 取得 mode
+    getLocalTheme() {
+      this.preferredTheme = localStorage.getItem('theme');
+      this.preferredTheme = this.preferredTheme === null ? 'light' : this.preferredTheme;
+      this.isDark = this.preferredTheme === 'dark';
+      this.setPreferredTheme(this.preferredTheme);
+    },
+
+    // 將 mode 寫入 localStorage 裡
+    setPreferredTheme(newTheme) {
+      localStorage.setItem('theme', newTheme);
+      this.setTheme(newTheme);
+    },
+
+    // 設定模式
+    setTheme(newTheme) {
+      if (newTheme !== document.body.className) {
+        window.theme = newTheme;
+        this.preferredTheme = newTheme;
+        document.body.className = newTheme;
+      }
+    },
   },
 };
 </script>
