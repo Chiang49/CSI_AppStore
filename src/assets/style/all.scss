@@ -1,11 +1,11 @@
 // css reset
 @import './helper/rest';
 
-// css base set
-@import './helper/base';
-
 // bootstrap grid
 @import '/node_modules/bootstrap/scss/bootstrap-grid.scss';
+
+// css base set
+@import './helper/base';
 
 // Animate.css
 @import 'animate.css';
@@ -17,7 +17,8 @@
 @import './views/appList';
 @import './views/appScreenshots';
 @import './views/drag';
-@import './views/appTest';
+@import './views/appTransition';
+@import './views/appModeSwitch';
 
 // components
 @import './components/appHeader';

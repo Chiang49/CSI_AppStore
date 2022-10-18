@@ -22,9 +22,14 @@ const routes = [
     component: () => import('../views/AppDrag.vue'),
   },
   {
-    path: '/Test',
-    name: 'Test',
-    component: () => import('../views/AppTest.vue'),
+    path: '/AppTransition',
+    name: 'AppTransition',
+    component: () => import('../views/AppTransition.vue'),
+  },
+  {
+    path: '/AppModeSwitch',
+    name: 'AppModeSwitch',
+    component: () => import('../views/AppModeSwitch.vue'),
   },
 ];
 

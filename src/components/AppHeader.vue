@@ -5,7 +5,8 @@
       <router-link to="/UploadFile">UploadFile</router-link>
       <router-link to="/UploadScreenshots">Screenshots</router-link>
       <router-link to="/AppDrag">Drag</router-link>
-      <router-link to="/Test">Transition</router-link>
+      <router-link to="/AppTransition">Transition</router-link>
+      <router-link to="/AppModeSwitch">Mode Switch</router-link>
     </nav>
     <label for="darkMode" :class="['switch', {'dark': isDark }]">
       <img src="../assets/icon/light_mode.svg" alt="light" class="switch-icon">
@@ -28,12 +29,20 @@ export default {
   data() {
     return {
       isDark: false,
+      mode: '',
     };
   },
-  methods: {
-    changeMode() {
-      console.log(this.isDark);
+  watch: {
+    isDark() {
+      this.mode = this.isDark ? 'dark' : 'ligth';
+      this.$emit('sendMode', this.mode);
     },
+  },
+  created() {
+    this.mode = localStorage.getItem('theme');
+    this.isDark = this.mode === 'dark';
+  },
+  methods: {
   },
 };
 </script>

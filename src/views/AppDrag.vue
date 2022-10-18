@@ -41,13 +41,20 @@ export default {
   methods: {
     // 送出
     push() {
-      if (this.inputTextState === 'new') {
-        this.list.push({
-          label: this.inputText,
+      if (this.inputText !== '') {
+        if (this.inputTextState === 'new') {
+          this.list.push({
+            label: this.inputText,
+          });
+        }
+        if (this.inputTextState === 'edit') {
+          this.list[this.editIndex].label = this.inputText;
+        }
+      } else {
+        this.$swal.fire({
+          icon: 'warning',
+          text: 'Input 不能空白',
         });
-      }
-      if (this.inputTextState === 'edit') {
-        this.list[this.editIndex].label = this.inputText;
       }
       this.inputText = '';
       this.editIndex = null;

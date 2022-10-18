@@ -4,6 +4,7 @@
 
 p{
     line-height: 1.5;
+    color: $dark;
 }
 
 img{
@@ -14,4 +15,13 @@ img{
 
 a{
     text-decoration: none;
+}
+
+.dark{
+    h1, h2, h3, p, a, li{
+        color: rgb(156, 156, 156);
+    }
+    button{
+        background: $light;
+    }
 }
