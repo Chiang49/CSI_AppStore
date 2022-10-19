@@ -10,7 +10,7 @@
     }
     &-body{
         height: 90%;
-        display: flex;
+        white-space: nowrap;
         overflow-x: overlay;
         .slideDrag-move{
             transition: transform .3s;
@@ -30,7 +30,7 @@
         }
     }
     &-item{
-        display: block;
+        display: inline-block;
         margin-right: 16px;
         position: relative;
         cursor: grab;

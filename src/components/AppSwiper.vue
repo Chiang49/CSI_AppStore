@@ -73,7 +73,7 @@ export default {
         this.sweetAlert('warning', '圖片空間已達上限 6 張');
         return;
       }
-      if (screenImgs.length > 6) {
+      if (screenImgs.length > 6 || ((this.photos.length + screenImgs.length) > 6)) {
         this.sweetAlert('warning', '上傳數量超過 6 張');
         return;
       }
