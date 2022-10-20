@@ -27,9 +27,9 @@ const routes = [
     component: () => import('../views/AppTransition.vue'),
   },
   {
-    path: '/AppModeSwitch',
-    name: 'AppModeSwitch',
-    component: () => import('../views/AppModeSwitch.vue'),
+    path: '/AppQRCode',
+    name: 'AppQRCode',
+    component: () => import('../views/AppQRCode.vue'),
   },
 ];
 

@@ -6,7 +6,7 @@
       <router-link to="/UploadScreenshots">Screenshots</router-link>
       <router-link to="/AppDrag">Drag</router-link>
       <router-link to="/AppTransition">Transition</router-link>
-      <router-link to="/AppModeSwitch">Mode Switch</router-link>
+      <router-link to="/AppQRCode">QRCode</router-link>
     </nav>
     <label for="darkMode" :class="['switch', {'dark': isDark }]">
       <img src="../assets/icon/light_mode.svg" alt="light" class="switch-icon">
