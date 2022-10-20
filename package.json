@@ -25,6 +25,7 @@
     "swiper": "^8.4.2",
     "util": "^0.12.4",
     "vue": "^3.2.13",
+    "vue-qrcode": "^2.2.0",
     "vue-router": "^4.0.3",
     "vue-sweetalert2": "^5.0.5",
     "vuex": "^4.0.0",
