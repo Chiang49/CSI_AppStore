@@ -4,6 +4,24 @@
     <ul class="row">
       <li class="col-sm-12 col-md-6">
         <h2 class="subTitle">One Url in QR Code</h2>
+        <div class="options">
+          <template  v-for="item in devices" :key="item.title">
+            <label
+              :for="item.title"
+              :class="['options-item', {'speech-bubble': item.title === chooseDevice}]">
+                <input
+                  type="radio"
+                  name="device"
+                  :value="item.title"
+                  :id="item.title"
+                  v-model="chooseDevice"
+                  hidden
+                >
+                <img :src="item.icon" alt="title">
+                <span v-if="item.title === chooseDevice">{{ item.title }}</span>
+            </label>
+          </template>
+        </div>
         <div class="uploadFile">
           <div class="uploadFile-header">
             <label for="qrcodeUrl">
@@ -22,7 +40,7 @@
         <div id="qrcode" ref="qrcode" class="qrcode"></div>
       </li>
       <li class="col-sm-12 col-md-6">
-        <h2 class="subTitle">QR Code (Multi-QR) Test</h2>
+        <h2 class="subTitle strikethrough">QR Code (Multi-QR) Test</h2>
         <div class="uploadFile">
           <div class="uploadFile-header">
             <label for="qrcodeUrl">
@@ -55,6 +73,10 @@
 <script>
 import QRCode from 'qrcodejs2';
 import VueQrcode from 'vue-qrcode';
+import appleIcon from '../assets/icon/apple_icon.svg';
+import androidIcon from '../assets/icon/android_icon.svg';
+import windowsIcon from '../assets/icon/windows_icon.svg';
+import xxxIcon from '../assets/icon/xxx_icon.svg';
 
 export default {
   components: {
@@ -62,6 +84,25 @@ export default {
   },
   data() {
     return {
+      devices: [
+        {
+          icon: appleIcon,
+          title: 'Apple',
+        },
+        {
+          icon: androidIcon,
+          title: 'Android',
+        },
+        {
+          icon: windowsIcon,
+          title: 'Windows',
+        },
+        {
+          icon: xxxIcon,
+          title: 'Xxxxx',
+        },
+      ],
+      chooseDevice: 'Apple',
       // 單一網址 QR Code
       dataUrl: '',
       // 多網址 QR Code
@@ -70,6 +111,10 @@ export default {
     };
   },
   methods: {
+    // 使用者選擇的裝置
+    userChooseDevice() {
+      console.log(this.chooseDevice);
+    },
     // 產生單一 URL 的 QRCode
     createdOneUrlQRcode() {
       // QRCode.clear 方法無法正常執行，改用原生 JS 去清除他
