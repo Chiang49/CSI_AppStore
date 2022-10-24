@@ -22,7 +22,7 @@
         <div id="qrcode" ref="qrcode" class="qrcode"></div>
       </li>
       <li class="col-sm-12 col-md-6">
-        <h2 class="subTitle">Multi-QR Test</h2>
+        <h2 class="subTitle">QR Code (Multi-QR) Test</h2>
         <div class="uploadFile">
           <div class="uploadFile-header">
             <label for="qrcodeUrl">
@@ -38,10 +38,11 @@
             <button class="labelTest" @click="pushUrlGroup">Push Url</button>
           </div>
         </div>
-        <button class="addFileBtn" @click="createdMoreUrlQRCode">Created QRCode</button>
         <VueQrcode
           v-if="urlGroup.length > 0"
           :value="urlGroup"
+          class="qrcode2"
+          @change="createdMoreUrlQRCode"
         ></VueQrcode>
         <ul v-for="(item, index) in urlGroup" :key="index">
           <li>{{ item }}</li>
@@ -61,7 +62,9 @@ export default {
   },
   data() {
     return {
+      // 單一網址 QR Code
       dataUrl: '',
+      // 多網址 QR Code
       urlTemp: '',
       urlGroup: [],
     };
